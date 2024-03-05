@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 타입 변환
+      // string => number
+      // Number(), parseInt(), parseFloat()
+      // NaN : Not a Number
+
+      // number => string
+      // String() => toString()
+      console.log("String() ", typeof String(123)); // string
+      let a = 456;
+      console.log("toString() ", typeof a.toString()); // string
+
+      let num1 = "40";
+      console.log(typeof num1); // string
+      console.log(typeof Number(num1)); // number
+      console.log(typeof parseInt(num1)); // number
+
+      // + : 연결
+
+      console.log(num1 + 5); // 405
+      console.log(num1 - 5); // 35
+      console.log(num1 * 5); // 200
+      console.log(num1 / 5); // 8
+      console.log("Number(true) ", Number(true)); // Number(true) 1
+      console.log("Number(true) ", Number(false)); // Number(true) 0
+    </script>
+  </body>
+</html>

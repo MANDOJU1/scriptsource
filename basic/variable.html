@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   alert("hello");
+    </script>
+    <!-- <script src="./my.js"></script> -->
+  </head>
+  <body>
+    <!-- 
+        화면
+        html : 구조설계
+        css : 디자인설계
+        javascript : 동작 정의
+                     버튼을 누르면,.. 메뉴를 클릭하면.., ..
+
+
+        javascript
+        => ECMA Script version
+        => ES6, ES9, ...
+        => 자바스크립트 기반의 프레임워크 :node.js, react, next.js, ...
+        => 자바스크립트 실행 환경
+           1) 웹 브라우저
+           2) Node.js 이용
+
+        => 자바와 유사(문법)
+           실행 시 한줄 한줄 실행
+        
+        script 코드 작성 방법
+        1) <head> 태그 안
+        2) </body> 앞 쪽
+        3) 태그에 직접 사용
+     -->
+    <!-- bgColor is not a function -->
+    <button type="button" onclick="bgColor1()">클릭</button>
+    <button type="button" onclick="alert('hello')">인사</button>
+    <script>
+      // 변수
+
+      // 타입은 없음 => 값을 담은 후에 타입이 생김
+      // var, let : 변수 선언
+      // const : 상수 선언
+
+      // var - 재선언, 재할당 가능
+      // let - 재선언 불가능, 재할당 가능(사용 추천)
+      // const - 재선언 불가능, 재할당 불가능
+
+      var num1 = 3;
+      num1 = 5; // 재할당 가능
+      console.log("num1 = ", num1);
+      num1 = 3.4;
+      console.log("num1 = ", num1);
+      num1 = "hello";
+      console.log("num1 = ", num1);
+
+      let num2 = 15;
+      console.log("num2 = ", num2);
+      num2 = 4.9; // 재할당 가능
+      console.log("num2 = ", num2);
+
+      var num1 = 55; // 재선언 가능
+      console.log("num1 = ", num1);
+
+      // let num2 = 25; // 재선언 불가능
+
+      const num3 = 65; // 상수이기 때문에 값을 무조건 넣어줘야 함
+      console.log("num3 = ", num3);
+      // num3 = 75; // TypeError: Assignment to constant variable.
+      // console.log("num3 = ", num3);
+
+      function bgColor1() {
+        //  document.body ==> body 태그
+        // 배경색 변경
+        document.body.style.backgroundColor = "blue";
+      }
+    </script>
+    <!-- <script src="./my.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 변수 자료형(타입)
+      // 문자열 : string (문자와 문자열 구분 안함) 'c' or "d"
+      // 숫자 : number (정수, 실수 구분 안함)
+      // 불린형 : boolean (true, false)
+      // 객체 : object
+      // 함수 : function
+
+      // objects : Date, Array, String, Number, Boolean, Object
+
+      // 값을 담고 있지 않는 상황
+      // 지정하기 전 : undefined, null
+
+      let a, b, c, d, e, f;
+      console.log("값을 담기 전 타입 확인 ", typeof c); // undefined
+
+      a = 2;
+      b = "abc";
+      c = "테스트";
+      d = 3.14;
+      e = true;
+      f = new Date();
+
+      console.log("타입 ", typeof a); // 타입 number
+      console.log("타입 ", typeof b); // 타입 string
+      console.log("타입 ", typeof c); // 타입 string
+      console.log("타입 ", typeof d); // 타입 number
+      console.log("타입 ", typeof e); // 타입 boolean
+      console.log("타입 ", typeof f); // 타입 object
+
+      f = null;
+      console.log("타입 ", typeof f); // 타입 object
+      d = [1, 2, 3, 4];
+      console.log("타입 ", typeof d); // 타입 object
+
+      const g = function () {};
+      console.log("타입 ", typeof g); // 타입 function
+    </script>
+  </body>
+</html>
