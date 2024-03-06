@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Object
+      let person = {};
+      person = {
+        name: ["Bob", "Smith"],
+        age: 32,
+        gender: "male",
+        interests: ["music", "skiing"],
+        greeting: function () {
+          alert("Hi!! I'm " + this.name[0] + ".");
+        },
+      };
+
+      console.log(person);
+      console.log(person.name);
+      console.log(person.name[0]);
+      console.log(person.interests[1]);
+      // console.log(person.greeting());
+
+      let person1 = {
+        name: {
+          first: "Bob",
+          last: "Smith",
+        },
+        age: 32,
+        gender: "male",
+        interests: ["music", "skiing"],
+        greeting: function () {
+          alert("Hi!! I'm " + this.name[0] + ".");
+        },
+      };
+      console.log(person1.name);
+      console.log(person1.name.first);
+      console.log(person1.name.last);
+
+      let obj1 = { ...person };
+      let obj2 = person;
+
+      // 원본 name 변경
+      person.name[0] = "Tomato";
+      console.log(person.name[0]); // Tomato
+      // 복사된 객체 name 확인
+      console.log(obj1.name[0]); // Tomato
+      console.log(obj2.name[0]); // Tomato
+
+      //
+      obj1 = { ...person, name: [...person.name], interests: [...person.interests] };
+      // 원본 name 변경
+      person.name[0] = "Bob";
+      console.log(person.name[0]); // Bob
+      // 복사된 객체 name 확인
+      console.log(obj1.name[0]); // Tomato
+      console.log(obj2.name[0]); // Bob
+
+      let output = "";
+      for (const key in person) {
+        output += "▶ " + key + " : " + person[key] + "<br>";
+      }
+      document.write(output);
+    </script>
+  </body>
+</html>

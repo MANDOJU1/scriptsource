@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 사용자에게 입력 받은 후 짝,홀 구분
+      // let num = Number(prompt("숫자를 입력해 주세요"));
+
+      // isNaN()
+      //   if (!isNaN(num)) {
+      //     if (num % 2 == 0) {
+      //       console.log("짝수");
+      //     } else {
+      //       console.log("홀수");
+      //     }
+      //   }
+
+      // 국어, 영어, 수학 입력 받은 후 평균을 구한 후 점수가 >= 90 A, >=80 B, >=70 C, >=60 D, F
+      let kor = Number(prompt("국어 점수 : "));
+      let eng = Number(prompt("영어 점수 : "));
+      let math = Number(prompt("수학 점수 : "));
+
+      let avg = (kor + eng + math) / 3;
+
+      let msg = "";
+
+      if (avg >= 90) {
+        msg = "A";
+      } else if (avg >= 80) {
+        msg = "B";
+      } else if (avg >= 70) {
+        msg = "C";
+      } else if (avg >= 60) {
+        msg = "D";
+      } else {
+        msg = "F";
+      }
+      alert("등급 : " + msg);
+    </script>
+  </body>
+</html>

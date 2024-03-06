@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // arrow function
+      // const greeting = (name) => {
+      //   console.log(`Hello!!! ${name}`);
+      // };
+
+      // 함수에서 실행 할 구문이 한줄 인 경우 {} 생략 가능
+      const greeting = (name) => console.log(`Hello!!! ${name}`);
+
+      greeting("홍길동");
+
+      const planetKor = ["수성", "금성", "지구", "화성", "목성", "토성", "천왕성", "해왕성"];
+
+      // forEach()
+      planetKor.forEach((element) => console.log(element));
+
+      const array = [];
+      planetKor.forEach((element) => array.push(element));
+      console.log(array);
+    </script>
+  </body>
+</html>

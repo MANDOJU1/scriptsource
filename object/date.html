@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const now = new Date();
+
+      document.write(now, "<br>"); // Wed Mar 06 2024 15:03:43 GMT+0900 (한국 표준시)
+      document.write("연도 ", now.getFullYear(), "<br>");
+      document.write("월 ", now.getMonth() + 1, "<br>"); // 0월부터 시작 => 1월 : 0월
+      document.write("일 ", now.getDate(), "<br>");
+      document.write("시 ", now.getHours(), "<br>");
+      document.write("분 ", now.getMinutes(), "<br>");
+      document.write("초 ", now.getSeconds(), "<br>");
+
+      document.write("날짜를 문자열로 ", now.toLocaleString(), "<br>"); // 2024. 3. 6. 오후 3:03:28
+    </script>
+  </body>
+</html>

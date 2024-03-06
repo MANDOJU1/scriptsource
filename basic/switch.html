@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 국어, 영어, 수학 입력 받은 후 평균을 구한 후 점수가 >= 90 A, >=80 B, >=70 C, >=60 D, F
+      let kor = Number(prompt("국어 점수 : "));
+      let eng = Number(prompt("영어 점수 : "));
+      let math = Number(prompt("수학 점수 : "));
+
+      let avg = (kor + eng + math) / 3;
+
+      let msg = "";
+
+      // if문 switch 문으로 바꾸기 >= 범위는 어떻게 해결 ?
+      switch (parseInt(avg / 10)) {
+        case 10:
+        case 9:
+          msg = "A";
+          break;
+        case 8:
+          msg = "B";
+          break;
+        case 7:
+          msg = "C";
+          break;
+        case 6:
+          msg = "D";
+          break;
+        default:
+          msg = "F";
+          break;
+      }
+      alert("등급 : " + msg);
+
+      // if (avg >= 90) {
+      //   msg = "A";
+      // } else if (avg >= 80) {
+      //   msg = "B";
+      // } else if (avg >= 70) {
+      //   msg = "C";
+      // } else if (avg >= 60) {
+      //   msg = "D";
+      // } else {
+      //   msg = "F";
+      // }
+      // alert("등급 : " + msg);
+    </script>
+  </body>
+</html>
