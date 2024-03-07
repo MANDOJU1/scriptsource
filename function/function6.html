@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .alert-danger {
+        height: 60px;
+        color: #58151c;
+        border: 1px solid #f1aeb5;
+        border-radius: 10px;
+        background-color: #f8d7da;
+        line-height: 60px;
+        padding-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button type="button" onclick="myFuncrion()">버튼 1</button>
+    </div>
+    <div class="alert alert-danger"><span>10</span>초 이내 구매시 사은품 증정!!</div>
+
+    <script>
+      // 내장함수 - alert(), prompt(), Number(), parseInt(), isNaN()
+
+      // URI : Identifier ==> URL + 자원식별
+      // URL : Location
+      // 주소 + 데이터 ==> get 방식
+
+      // encodeURI() : 영문, 숫자, 일부기호 제외
+      // encodeURIComponent() : 영문, 숫자 제외
+      document.write(encodeURI("http://localhost:8080/basic/info.html?name=홍길동&age=15"), "<br>");
+      document.write(encodeURIComponent("http://localhost:8080/basic/info.html?name=홍길동&age=15"), "<br>");
+
+      document.write(decodeURI("http://localhost:8080/basic/info.html?name=%ED%99%8D%EA%B8%B8%EB%8F%99&age=15"), "<br>");
+      document.write(decodeURIComponent("http%3A%2F%2Flocalhost%3A8080%2Fbasic%2Finfo.html%3Fname%3D%ED%99%8D%EA%B8%B8%EB%8F%99%26age%3D15"), "<br>");
+
+      // confirm()
+      function myFuncrion() {
+        // let result = confirm("버튼을 클릭하셨네요");
+        // console.log(result); // 확인을 누르면 true, 취소를 누르면 false
+        if (confirm("정말 삭제하시겠습니까?")) {
+        }
+      }
+
+      // 코드 실행 => 순차 (위-<아래) : 동기식
+      //                             : 비동기식
+      // setTimeout(함수, 숫자)
+
+      //   console.log("시작");
+      //   setTimeout(() => {
+      //     console.log("3초가 지났습니다");
+      //   }, 3000);
+      //   console.log("마무리");
+
+      setTimeout(() => {
+        // 광고창 닫기
+        document.querySelector(".alert").style.display = "none";
+      }, 10000);
+
+      setInterval(() => {
+        console.log("안녕");
+      }, 2000);
+    </script>
+  </body>
+</html>

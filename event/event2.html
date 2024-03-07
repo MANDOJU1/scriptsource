@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      td {
+        border: 1px solid gray;
+      }
+      table {
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button">버튼 1</button>
+    <button type="button">버튼 2</button>
+    <table id="outside">
+      <tr>
+        <td id="t1">one</td>
+      </tr>
+      <tr>
+        <td id="t2">two</td>
+      </tr>
+    </table>
+    <p id="demo">Click me</p>
+    <div>
+      <a href="https://www.naver.com">네이버</a>
+    </div>
+    <script>
+      // 버튼 1 클릭되면 안녕하세요 alert 띄우기
+      // 버튼 2 클릭되면 Hello 이름 alert 띄우기
+
+      // 버튼 찾기
+      const btns = document.querySelectorAll("button");
+
+      console.log(btns[0]);
+      console.log(btns[1]);
+
+      function showDialog(greeting, name) {
+        alert(`${greeting}!! ${name}`);
+      }
+
+      // 버튼 이벤트 여부 감지
+      btns[0].addEventListener("click", () => alert("안녕하세요"));
+      btns[1].addEventListener("click", () => showDialog("Hello", "홍길동"));
+
+      // table 클릭 시 two => three, three => two
+      // table 요소 찾기 / 이벤트 리스너 추가(click) / two => three, three => two
+      const table = document.querySelector("#outside");
+      console.log(table);
+      table.addEventListener("click", () => {
+        // two 요소 찾기
+        const two = document.getElementById("t2");
+        // if (t2.innerText == "two") {
+        //   t2.innerText = "three";
+        // } else {
+        //   t2.innerText = "two";
+        // }
+
+        // 삼항 연산자
+        t2.innerText = t2.innerText == "two" ? "three" : "two";
+      });
+
+      // p 태그 클릭 시 텍스트 노드의 값 보여주기
+      document.querySelector("#demo").addEventListener("click", (e) => {
+        // alert(document.querySelector("#demo").innerText);
+
+        // 현재 이벤트가 발생한 대상 : e
+        // 이벤트가 일어난 대상과 해야하는 작업의 대상이 같다면 e.target 사용하기
+        // console.log(e.target);
+        // alert(console.log(e.target.innerText));
+        // click me => Good Job 변경
+        e.target.innerText = "Goob Job";
+      });
+
+      // a, submit, reset : 기능을 가지고 있는 요소
+      //                    스크립트 동작을 작성하길 원한다면 기능 중단해야 함
+
+      // a 클릭 시 다음으로 이동하기
+      document.querySelector("a").addEventListener("click", (e) => {
+        // preventDefault() : 요소가 가지고 있는 기능 중지
+        e.preventDefault();
+        location.href = "https://daum.net";
+      });
+    </script>
+  </body>
+</html>

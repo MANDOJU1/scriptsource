@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header1">Header 1</h1>
+    <h2 id="header2">Header 2</h2>
+    <p id="text">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores id modi, labore iste aspernatur eum quia cumque consequatur velit non sit,
+      nulla iusto architecto. Architecto quibusdam tempora recusandae a eius.
+    </p>
+
+    <script>
+      // DOM
+      // 1. 요소 찾기 : 스타일 변경, 텍스트 변경, 이벤트, 요소 제거
+      const element = document.getElementById("header1");
+      console.log(element);
+
+      const element2 = document.getElementById("header2");
+      console.log(element2);
+
+      // 텍스트 노드의 값 확인
+      console.log(element.textContent); // Header 1
+
+      // 텍스트 노드의 값 변경
+      // innerText, textContent - 값 변경, 태그 쓰기 불가능
+      // innerHTML - 값 변경, 태그 쓰기 가능
+      // element.innerText = "<i>getElementById</i>";
+      element.textContent = "getElementById";
+      // element.innerHTML = "<i>getElementById</i>";
+
+      // p 요소 찾기
+      const p = document.getElementById("text");
+      // p 요소 내용 출력
+      console.log(p.innerText); // p.textContent or p.innerHTML
+
+      // 요소 찾기 중 가장 많이 사용하는 방식 3가지
+      // document.getElementById(), document.querySelector(), document.querySelectorAll()
+      // querySelector("css 선택자 모두 가능")
+      element = document.querySelector("#header1");
+      element2 = document.querySelector("#header2");
+      p = document.querySelector("#text");
+    </script>
+  </body>
+</html>

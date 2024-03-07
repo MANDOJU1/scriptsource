@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" onclick="myFunction()">클릭해주세요</button>
+    <button type="button">클릭해주세요2</button>
+    <script>
+      // 이벤트 - 사이트에서 방문자가 취하는 모든 행위
+      // 이벤트 발생 => 이벤트가 발생했을 때 감지하는 코드 필요(이벤트 핸들러 or 이벤트 리스너)
+
+      // on ~ : 이벤트 리스너, myFunction() : 이벤트 핸들러
+      function myFunction() {
+        // 버튼이 눌러졌을 때 해야할 코드
+        alert("버튼이 클릭됨");
+      }
+
+      // 클릭해주세요2 이벤트 발생하게 만들기
+      // addEventListener(이벤트명, 함수명)
+      // document.querySelector("button:nth-last-of-type(1)").addEventListener("click", myFunction);
+      document.querySelector("button:nth-last-of-type(1)").addEventListener("click", () => {
+        alert("두 번째 버튼이 클릭 됨");
+      });
+    </script>
+  </body>
+</html>

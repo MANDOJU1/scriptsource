@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 name="head" class="head" id="head">Header 1</h1>
+    <h1>Header 2</h1>
+    <script>
+      // 요소 삭제 - 요소 찾은 후 삭제
+      // document.querySelector("h1").remove();
+      // document.body.removeChild(document.querySelector("h1"));
+
+      // 요소 속성 삭제
+      document.querySelector("h1").removeAttribute("class");
+
+      // 텍스트 노드 삭제
+      document.querySelector("h1").innerText = "";
+    </script>
+  </body>
+</html>

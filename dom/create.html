@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">
+      <p>반갑습니다</p>
+    </div>
+    <script>
+      //  2. 요소 생성
+      // <h1>Hello Dom</h1>
+      const header = document.createElement("h1");
+      const content = document.createTextNode("Hello DOM");
+
+      // h1 요소와 텍스트 노드연결
+      // header.appendChild(content);
+
+      // body 자식 요소로 추가
+      // document.body.appendChild(header);
+
+      // let output = "<ul><li>javascript</li>";
+      // output += "<li>html</li>";
+      // output += "<li>css</li>";
+      // output += "<li>jquery</li>";
+      // output += "</ul>";
+
+      // document.body.innerHTML = output;
+
+      // insertAdjancenHTML(위치, 삽입할 요소)
+      // beforeend : 현재 태그 요소의 마지막 자식으로 삽입
+      // beforebegin : 현재 태그 요소의 이전 형제 요소로 삽입
+      // afterbegin : 현재 태그 요소의 첫번째 자식으로 삽입
+      // afterend : 현재 태그 요소의 다음 형제 요소로 삽입
+
+      const p = "<p>안녕하세요</p>";
+      document.getElementById("test").insertAdjacentHTML("afterend", p);
+    </script>
+  </body>
+</html>

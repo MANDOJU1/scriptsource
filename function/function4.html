@@ -25,6 +25,27 @@
       const array = [];
       planetKor.forEach((element) => array.push(element));
       console.log(array);
+
+      // find(), findIndex()
+      const array2 = [15, 6, 9, 13, 22, 27];
+      // 20보다 큰 첫번째 요소
+      console.log(
+        array2.find((item) => {
+          return item > 20;
+        })
+      ); // 22
+      // 다른 방법
+      console.log(array2.find((item) => item > 20)); // 22
+      console.log(array2.findIndex((item) => item > 20)); // 4
+
+      // map() - 새로운 배열을 만들어서 리턴(전체) / filter() - 새로운 배열을 만들어서 리턴(특정 조건)
+      // array2 요소에 * 2 를 한 후 새로운 배열로 생성
+      // const array2 = [15, 6, 9, 13, 22, 27];
+      const array3 = array2.map((x) => x * 2);
+      console.log(array3);
+
+      const array4 = array2.filter((x) => x > 10);
+      console.log(array4);
     </script>
   </body>
 </html>

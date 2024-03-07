@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" onclick="href()">클릭</button>
+    <div>
+      <button type="button" onclick="history.back()">이전으로</button>
+      <button type="button" onclick="history.forward()">다음으로</button>
+      <button type="button" onclick="history.go(-2)">지정된만큼</button>
+    </div>
+    <script>
+      // BOM : Browser Object Model
+      // 1. window 2. location 3. history 4. document(DOM)
+      // DOM : Document Object Model(문서 객체 모델)
+      // html 코드 작성 => 자바스크립트를 이용해 요소에 접근
+      // 자바스크립트를 이용해서 모든 요소 변화
+      // 값, 스타일, 요소 제거, 요소 변경, 요소 추가, ...
+      // window.open("http://www.naver.com");
+
+      // 1. window - open(), alert(), prompt(), setTimeout(), ...
+      // window.open("./child.html", "", "width=420,height=550");
+
+      // 2. location
+      //    href 속성, replace()
+      function href() {
+        // location.href = "https://www.naver.com";
+        location.replace("https://www.naver.com");
+      }
+
+      // 3. history
+      // back(), forward(), go()
+    </script>
+  </body>
+</html>
