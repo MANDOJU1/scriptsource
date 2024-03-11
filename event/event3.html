@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- /* body {
+        background-color: green;
+    } */ -->
+  </head>
+  <style></style>
+  <body>
+    <form action="" method="get">
+      <input type="radio" name="color" id="" value="green" />녹색 <input type="radio" name="color" id="" value="blue" />파랑
+    </form>
+    <script>
+      // 라디오를 클릭하면 해당 색상을 body 배경색으로 변경
+      const colors = document.querySelectorAll("input[name= color]");
+
+      // colors[0].addEventListener("click", () => (document.body.style.backgroundColor = "green"));
+      // colors[1].addEventListener("click", () => (document.body.style.backgroundColor = "blue"));
+
+      // foreach를 사용 (100, 1000개의 배경색을 바꿔야할 때)
+      colors.forEach((color) => {
+        color.addEventListener("click", (e) => {
+          //   console.log(e.target.value);
+          document.body.style.backgroundColor = "e.taget.value";
+        });
+      });
+    </script>
+  </body>
+</html>

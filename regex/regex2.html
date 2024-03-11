@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text-danger {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae quod ullam suscipit optio, qui placeat nemo maxime error eos odio, ipsa facilis
+      provident minus eligendi cumque, impedit dolores dolorum ipsum. <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias et ea, pariatur incidunt sequi maxime perspiciatis dolores ipsam odit sed amet ab
+      hic accusamus distinctio voluptate. Sint libero reiciendis obcaecati. <br />
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellat nesciunt fuga harum ullam nemo, quia esse iste, nisi, sequi quisquam
+      cum nam vero temporibus eum mollitia quibusdam ratione. Aliquid.
+    </p>
+    <p id="match"></p>
+    <form action="" method="post">
+      <div>
+        <label for="userid">아이디</label>
+        <input type="text" name="nameid" id="nameid" />
+        <small class="text-danger"></small>
+      </div>
+      <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" />
+        <small class="text-danger"></small>
+      </div>
+      <div>
+        <button type="submit">전송</button>
+      </div>
+    </form>
+    <script>
+      // ipsum 문자 찾기
+
+      // 원본 문자열 가져오기
+      const p = document.querySelector("p").innerText;
+      // 패턴 생성
+      const regEx = /ipsum/g;
+
+      document.querySelector("#match").innerText = p.match(regEx);
+
+      // 폼 submit 이 일어나면
+      // 아이디 유효성 검증
+      // 영문자, 숫자 조합으로 6 ~ 12 자리 허용
+      // 123abc53, abcde123, a123def
+
+      // 폼 submit 이 일어나면
+      // 이름을 가져와서 유효성 검증
+      // 2~5 자리 여야 하고, 한글이 입력되어야 한다.
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.querySelector("#name");
+        const regEx = /^[가-힣]{2,5}$/;
+
+        if (!regEx.test(name.value)) {
+          //   alert("이름을 확인해 주세요");
+          name.nextElementSibling.innerHTML = "이름을 확인해 주세요";
+        }
+      });
+    </script>
+  </body>
+</html>

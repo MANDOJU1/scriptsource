@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Mouse Over me !!!</p>
+    <script>
+      const p = document.querySelector("p");
+      // mouseover / mouse를 올리면 색깔이 바뀜
+      p.addEventListener("mouseover", (e) => (e.target.style.color = "red"));
+      // mouseout / mouseleave + mouseenter
+      p.addEventListener("mouseout", (e) => (e.target.style.color = "black"));
+    </script>
+  </body>
+</html>

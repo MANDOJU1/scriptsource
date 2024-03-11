@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" name="num1" id="num1" size="5" />
+      +
+      <input type="text" name="num2" id="num2" size="5" />
+      =
+      <input type="text" name="result" id="result" size="5" />
+      <input type="button" value="더하기" />
+    </div>
+
+    <div style="margin-top: 10px">
+      <input type="text" name="num3" id="num3" size="5" />
+      <select name="op" id="">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      +
+      <input type="text" name="num4" id="num4" size="5" />
+      =
+      <input type="text" name="result2" id="result2" size="5" />
+      <input type="button" value="계산" />
+    </div>
+    <script>
+      // 더하기 클릭 시 num1, num2 값 가져온 후 연산결과를 result 에 보여주기
+      document.querySelector("[type='button']").addEventListener("click", () => {
+        const num1 = document.querySelector("#num1");
+        const num2 = document.querySelector("#num2");
+        const result = document.querySelector("#result");
+        result.value = parseInt(num1.value) + parseInt(num2.value);
+      });
+
+      document.querySelector("body div:nth-child(2) input[type='button']").addEventListener("click", () => {
+        const num3 = Number(document.querySelector("#num3").value);
+        const num4 = Number(document.querySelector("#num4").value);
+        const op = document.querySelector("select[name='op']");
+        const result2 = document.querySelector("#result2");
+
+        // op : +, -, *, /
+        switch (op.value) {
+          case "+":
+            result2.value = num3 + num4;
+            break;
+          case "-":
+            result2.value = num3 - num4;
+            break;
+          case "*":
+            result2.value = num3 * num4;
+            break;
+          case "/":
+            result2.value = num3 / num4;
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

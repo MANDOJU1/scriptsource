@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #p1 {
+        /* display: none; 요소의 영역도 제거 <=> display : block; */
+        /* visibility: hidden; 요소의 영역은 남겨둠 <=> visibility : visible*/
+      }
+    </style>
+  </head>
+  <body>
+    <p id="demo">JavaScript can change HTML content</p>
+    <button type="button">Click me</button>
+
+    <div id="ex">여기가 div 요소로 선언되었습니다.</div>
+    <p>
+      <a href="#" id="display">div 요소 내용 출력하기</a>
+    </p>
+    <p>
+      <a href="#" id="revalue">div 요소 내용 변경하기</a>
+    </p>
+    <div id="light">
+      <button type="button" class="on">Turn on the light</button>
+      <img src="./pic_bulboff.gif" alt="" />
+      <button type="button" class="off">Turn off the light</button>
+    </div>
+    <div>
+      <p id="p1">This is a paragraph</p>
+      <button type="button" id="hidden">요소 숨김</button>
+      <button type="button" id="visible">요소 보이기</button>
+    </div>
+    <script>
+      // 버튼 클릭 시 p 요소의 텍스트 값을 변경하기
+      // Hello Javascript!!
+      document.querySelector("button").addEventListener("click", () => {
+        document.querySelector("#demo").innerHTML = "Hello Javascript!!";
+      });
+
+      const ex = document.querySelector("#ex");
+      // display 영역을 클릭하면 display 요소 텍스트를 가져와서 revalue 요소의 내용으로 변경
+      document.getElementById("display").addEventListener("click", (e) => {
+        ex.innerHTML = e.target.innerHTML;
+      });
+      // revalue 요소를 클릭하면 ex 요소의 내용을 "내용이 변경되었습니다" 라는 텍스트가 나타나도록 하기
+      document.getElementById("revalue").addEventListener("click", (e) => {
+        ex.innerHTML = "내용이 변경되었습니다.";
+      });
+
+      // 전구 (따로 만들 때)
+      const img = document.querySelector("#light img");
+      // document.querySelector("#light button:first-child").addEventListener("click", (e) => {
+      //   img.src = "./pic_bulbon.gif";
+      // });
+      // document.querySelector("#light button:last-child").addEventListener("click", (e) => {
+      //   img.src = "./pic_bulboff.gif";
+      // });
+
+      // 전구 (이벤트 버블링 사용할 때)
+      document.querySelector("#light").addEventListener("click", (e) => {
+        // 어디서 이벤트가 온 것인가?
+        console.log("클래스 값 확인 ", e.target.classList);
+        console.log("클래스 값 확인 ", e.target.classList.contains("on"));
+        // add(), remove(), replace(), toggle()
+        if (e.target.classList.contains("on")) {
+          img.src = "./pic_bulbon.gif";
+        } else {
+          img.src = "./pic_bulboff.gif";
+        }
+      });
+
+      // 버튼을 누르면 요소 숨겨지거나 보여주기
+      const p1 = document.getElementById("p1");
+      document.querySelector("#hidden").addEventListener("click", () => (p1.style.display = "none"));
+      document.querySelector("#visible").addEventListener("click", () => (p1.style.display = "block"));
+    </script>
+  </body>
+</html>

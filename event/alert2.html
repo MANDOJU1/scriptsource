@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+        position: relative;
+
+        display: none;
+      }
+
+      .alert-box span {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgb(54, 62, 228);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="alert-box">
+      <span>알림창</span>
+      <span class="close">X</span>
+    </div>
+    <button class="btn1">버튼 1</button>
+    <button class="btn2">버튼 2</button>
+    <script>
+      // 버튼 클릭 시 알림장 보여주기
+      // 버튼 1 : 아이디를 입력해 주세요 라는 메세지 띄우기
+      // 버튼 2 : 비밀번호를 입력해 주세요 라는 메세지 띄우기
+
+      const alert = document.querySelector(".alert-box");
+      // console.log(alert.firstChild); // " 알림창 "
+      // console.log(alert.firstElementChild); // <span class="close">X</span>
+      // console.log(alert.innerText); // 알림창 X
+      // console.log(alert.innerHTML); // 알림창 <span class="close">X</span>
+      // console.log(alert.textContent); // 알림창 X
+
+      // document.querySelector(".btn1").addEventListener("click", () => {
+      //   alert.style.display = "block";
+      //   alert.firstChild.textContent = "아이디를 입력해 주세요";
+      // });
+
+      // document.querySelector(".btn2").addEventListener("click", () => {
+      //   alert.style.display = "block";
+      //   alert.firstChild.textContent = "비밀번호를 입력해 주세요";
+      // });
+
+      // // X 클릭 시 알림창 숨기기
+      // document.querySelector(".close").addEventListener("click", () => {
+      //   alert.style.display = "none";
+      // });
+
+      // 위에 코드 간단하게 바꾸기
+      const notification = (state, msg) => {
+        alert.style.display = state;
+
+        if (msg != undefined) {
+          alert.firstChild.textContent = msg;
+        }
+      };
+      document.querySelector(".btn1").addEventListener("click", () => notification("block", "아이디를 입력해 주세요"));
+      document.querySelector(".btn2").addEventListener("click", () => notification("block", " 비밀번호를 입력해 주세요"));
+      document.querySelector(".close").addEventListener("click", () => notification("none"));
+    </script>
+  </body>
+</html>

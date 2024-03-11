@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+        position: relative;
+
+        display: none;
+      }
+
+      .alert-box span {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgb(54, 62, 228);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="alert-box">
+      알림창
+      <span class="close">X</span>
+    </div>
+    <button class="show">알림창 보여주기</button>
+    <script>
+      const alert = document.querySelector(".alert-box");
+      // 버튼 클릭 시 알림장 보여주기
+      document.querySelector(".show").addEventListener("click", () => {
+        alert.style.display = "block";
+      });
+
+      // X 클릭 시 알림창 숨기기
+      document.querySelector(".close").addEventListener("click", () => {
+        alert.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

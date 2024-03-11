@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .list-group {
+        width: 200px;
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link act ive" aria-current="page" href="#">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">로그아웃</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">상품상세</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">상품목록</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- 햄버거 버튼 클릭 시 보여줄 서브 메뉴 -->
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action active" aria-current="true"> 로그인 </a>
+      <a href="#" class="list-group-item list-group-item-action">로그아웃</a>
+      <a href="#" class="list-group-item list-group-item-action">상품상세</a>
+      <a href="#" class="list-group-item list-group-item-action">상품목록</a>
+    </div>
+
+    <script>
+      const toggler = document.querySelector(".navbar-toggler");
+      // toggler.addEventListener("click", () => alert("햄버거 버튼 클릭"));
+
+      toggler.addEventListener("click", () => {
+        // 숨겨진 메뉴 보여주기 => show 클래스명 이용
+        document.querySelector(".list-group").classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>

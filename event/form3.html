@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label for="username">이름</label>
+        <input type="text" name="username" id="username" />
+      </div>
+      <div>
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="age">나이</label>
+        <input type="text" name="age" id="age" />
+      </div>
+      <div>
+        <button type="submit">전송</button>
+      </div>
+    </form>
+    <script>
+      // form submit 이 되면
+      // input 요소의 값들이 비어 있는지 확인하기
+      // 비어 있다면 alert ('이름을 입력해주세요')
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault(); // submit 중지
+
+        // 유효성 검증 - 사용자의 입력값은 DB에 저장되어야 하는 값이므로 확인 해야 함
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const age = document.getElementById("age");
+
+        if (username.value == "") {
+          alert("이름을 입력해주세요");
+          username.focus();
+          return;
+        } else if (password.value == "") {
+          alert("비밀번호를 입력해주세요");
+          password.focus();
+          return;
+        } else if (age.value == "" || isNaN(age.value)) {
+          // 숫자가 아니라면
+          alert("나이를 입력해주세요");
+          // age.focus();
+          age.select();
+          return;
+        }
+
+        // 폼 전송
+        form.submit();
+      });
+    </script>
+  </body>
+</html>
