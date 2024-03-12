@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 전체요소 : margin,padding 0 */
+      /* container : flex 높이 50, 배경색 : lightblue*/
+      /* li : 블릿 기호 제거 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 50px;
+        background-color: lightblue;
+      }
+      .container li {
+        margin: 0 10px;
+        list-style: none;
+        width: 25%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="container">
+      <li>메뉴 1</li>
+      <li>메뉴 2</li>
+      <li>메뉴 3</li>
+      <li>메뉴 4</li>
+    </ul>
+    <div class="result"></div>
+    <script>
+      // 메뉴 1을 클릭하면 서버로부터 데이터 가져오기
+      // ok : 200
+      // not found : 404, 403, 401
+      // 서버 오류 : 500
+      document.querySelector(".container li:first-child").addEventListener("click", () => {
+        fetch("https://MANDOJU1.github.io./data.txt")
+          .then((response) => {
+            if (!response.ok) throw new Error("주소를 확인하세요");
+            return response.text();
+          })
+          .then((data) => {
+            console.log(data);
+
+            // 받은 데이터를 result 에 보여주기
+            document.querySelector(".result").innerHTML = data;
+          })
+          .catch((error) => console.log(error));
+      });
+    </script>
+  </body>
+</html>
