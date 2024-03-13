@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* 전체요소 : margin,padding 0 */
-      /* container : flex 높이 50, 배경색 : lightblue*/
-      /* li : 블릿 기호 제거 */
+      /* 전체요소 : margin,padding 0  */
       * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
       }
+      /* container : flex, 높이 50, 배경색 : lightblue */
       .container {
         display: flex;
         justify-content: center;
         align-items: center;
 
-        height: 50px;
         background-color: lightblue;
+        height: 50px;
       }
+      /* li : 블릿 기호 제거 */
       .container li {
         margin: 0 10px;
         list-style: none;
         width: 25%;
+
         cursor: pointer;
       }
     </style>
@@ -38,9 +38,12 @@
     </ul>
     <div class="result"></div>
     <script>
-      // 메뉴 2을 클릭하면 서버로부터 데이터 가져오기
+      // 메뉴2 클릭하면 서버로부터 데이터 가져오기
+      // ok : 200
+      // not found : 404, 403, 401
+      // 서버 오류 : 500
       document.querySelector(".container li:nth-child(2)").addEventListener("click", () => {
-        fetch("https:///MANDOJU1.github.io/version.json")
+        fetch("https://MANDOJU1.github.io./version.json")
           .then((response) => {
             if (!response.ok) throw new Error();
 
@@ -55,7 +58,8 @@
             // result 에 보여주기 ul li
             let result = "<ul><li>version : " + data.version + "</li>";
             result += "<li>codename : " + data.codename + "</li></ul>";
-            document.querySelector(".result").innerHTML = data;
+
+            document.querySelector(".result").innerHTML = result;
           })
           .catch(() => console.log("오류"));
       });

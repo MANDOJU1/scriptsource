@@ -52,13 +52,10 @@
 
             let result = `<ul>`;
             data.forEach((item) => {
-              console.log(item.version);
-              console.log(item.codename);
-
               result += `<li>version : " ${item.version} + </li>`;
               result += `<li>codename : " ${item.codename} + "</li>`;
             });
-            result += "</ul>";
+            result += `</ul>`;
 
             document.querySelector(".result").innerHTML = result;
           })

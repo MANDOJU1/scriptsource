@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h3>상품 목록</h3>
+      <div class="row mb-2">
+        <div class="col-sm-4">
+          <img src="https://placeholder.co/600x600" class="card-img-top" alt="..." />
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">가격 : <span>70000</span></p>
+        </div>
+        <div class="col-sm-4">
+          <img src="https://placeholder.co/600x600" class="card-img-top" alt="..." />
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">가격 : <span>70000</span></p>
+        </div>
+        <div class="col-sm-4">
+          <img src="https://placeholder.co/600x600" class="card-img-top" alt="..." />
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">가격 : <span>70000</span></p>
+        </div>
+      </div>
+      <button class="btn btn-danger" id="more">더보기...</button>
+    </div>
+    <script>
+      // 배열
+      const products = [
+        { id: 0, price: 70000, title: "Blossom Dress" },
+        { id: 0, price: 50000, title: "Springfild Shirt" },
+        { id: 0, price: 60000, title: "Black Monastery" },
+      ];
+
+      // products 값 화면 출력
+      // 디자인 영역 가져오기=> products 값 삽입
+      const cols = document.querySelectorAll(".container .row:nth-child(2) .col-sm-4");
+      cols.forEach((cols, idx) => {
+        cols.querySelector("h5").innerHTML = products[idx].title;
+        cols.querySelector("p > span").innerHTML = products[idx].price;
+      });
+
+      // 더보기 클릭 시 두 번째 줄 상품 가져온 후 button 요소 앞 쪽에 보여주기
+      // 더보기 클릭 시 세 번째 줄 상품 가져온 후 button 요소 앞 쪽에 보여주기
+      // 버튼 두 번 클릭 시 disable 시키기
+
+      // 버튼 횟수 변수
+      let count = 0;
+
+      document.querySelector("#more").addEventListener("click", (e) => {
+        // 버튼 횟수 증가
+        count++;
+        let url = "https://MANDOJU1.github.io/";
+
+        if (count == 1) {
+          url += "more1.json";
+        } else {
+          url += "more2.json";
+        }
+
+        fetch(url)
+          .then((response) => {
+            if (!response.ok) throw new Error();
+            return response.json();
+          })
+          .then((data) => {
+            let product = `<div class="row mb-2">`;
+            data.forEach((item) => {
+              product += `<div class="col-sm-4">`;
+              product += `<img src="http://placehold.co/600x600" class="card-img-top" alt="..." />`;
+              product += `<h5 class="card-title">${item.title}</h5>`;
+              product += `<p class="card-text">`;
+              product += `가격 : <span>${item.price}</span>`;
+              product += `</p></div>`;
+            });
+            product += `</div>`;
+
+            e.target.insertAdjacentHTML("beforebegin", product);
+
+            if (count == 2) e.target.disabled = true;
+          })
+          .catch(() => console.log("오류"));
+      });
+    </script>
+  </body>
+</html>
